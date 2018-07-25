@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<h1>One To One</h1>
+
+{% if perms.uno_a_uno.add_uno_a_uno %}
+  Can add uno_a_uno ...
+{% else %}
+  Can't add uno_a_uno ...
+{% endif %} <br>
+
+
+{% if pets %}
+  {% for pet in pets %}
+    <li>{{ pet.name }}</li>
+  {% endfor %}
+{% else %}
+  <h4>No results...</h4>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+<!-- header
+================================================== -->
+<header class="s-header">
+
+    <div class="header-logo">
+        <a class="site-logo" href="{% url 'dashboard:list' %}">Django</a>
+    </div>
+
+    <nav class="header-nav-wrap">
+      <ul class="header-nav">
+        <li class="{{ Dashboard_menu }}"><a href="{% url 'dashboard:list' %}" title="home">Home</a></li>
+        <li class="{{ OneToOne_menu }}"><a href="{% url 'uno_a_uno:list' %}" title="One To One">OneToOne</a></li>
+        <li><a href="/admin/" title="Admin">Admin</a></li>
+      </ul>
+    </nav>
+
+    <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+</header> <!-- end s-header -->
