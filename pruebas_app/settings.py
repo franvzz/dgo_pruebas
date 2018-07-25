@@ -39,7 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # -- apps
     'apps.dashboard',
+    # One To One
     'apps.uno_a_uno',
+    # One To Many
+    'apps.uno_a_muchos',
+    # Many To One
+    'apps.muchos_a_uno',
+    # Many To Many
+    'apps.muchos_a_muchos',
 ]
 
 MIDDLEWARE = [

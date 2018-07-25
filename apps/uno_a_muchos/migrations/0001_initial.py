@@ -13,31 +13,33 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Place',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('address', models.CharField(max_length=80)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Waiter',
+            name='Owner',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='Restaurant',
+            name='Pet',
             fields=[
-                ('place', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='uno_a_uno.Place')),
-                ('serves_hot_dogs', models.BooleanField(default=False)),
-                ('serves_pizza', models.BooleanField(default=False)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=50)),
+                ('sex', models.CharField(blank=True, max_length=50, null=True)),
+                ('age', models.IntegerField(blank=True, null=True)),
+                ('admission', models.DateField(blank=True, null=True)),
+                ('owner', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='uno_a_muchos.Owner')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Vaccine',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=50)),
             ],
         ),
         migrations.AddField(
-            model_name='waiter',
-            name='restaurant',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='uno_a_uno.Restaurant'),
+            model_name='pet',
+            name='vaccine',
+            field=models.ManyToManyField(to='uno_a_muchos.Vaccine'),
         ),
     ]

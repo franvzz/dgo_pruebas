@@ -20,7 +20,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('one-to-one/', include('apps.uno_a_uno.urls', namespace="uno_a_uno")),
+    # path('one-to-many/', include('apps.uno_a_muchos.urls', namespace="uno_a_muchos")),
+    # path('one-to-one/', include('apps.uno_a_uno.urls', namespace="uno_a_uno")),
     path('', include('apps.dashboard.urls', namespace="dashboard")),
 ]
 
